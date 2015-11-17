@@ -15,6 +15,6 @@ On Zabbix's sever
 3. Wait for discovery of MQM and Queue, and then enjoy !
 
 ##Note
-1. The script will discover all Local Queues except SYSTEM queues.
+1. The script will automatically discover all Local Queues except SYSTEM queues.
 2. The default triggers of queue depth is 500/1w/10w.
 3. Tested on Linux and AIX.
