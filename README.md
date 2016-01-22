@@ -18,4 +18,4 @@ On Zabbix's sever
 ##Note
 1. The script will autodiscover all Local Queues except "SYSTEM*" queues.
 2. The default triggers of queue depth is 500/1w/10w.
-3. Tested mqm running on Linux and AIX, zabbix server 2.4.6 .
+3. Tested mqm running on Linux and AIX, zabbix server 2.4.5 .
