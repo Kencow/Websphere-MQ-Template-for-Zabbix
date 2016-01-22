@@ -7,7 +7,7 @@ On Zabbix's agent
 1. Add zabbix user to mqm's group,ensuring zabbix can run mq's command (e.g. dspmq);
 2. Copy the "bin" scripts folder to /etc/zabbix/;
 3. Copy mq.conf to /etc/zabbix/zabbix_agentd.d/;
-4. Restare zabbix-agent.
+4. Restart zabbix-agent.
 
 On Zabbix's sever
 
@@ -18,4 +18,4 @@ On Zabbix's sever
 ##Note
 1. The script will autodiscover all Local Queues except "SYSTEM*" queues.
 2. The default triggers of queue depth is 500/1w/10w.
-3. Tested on Linux and AIX.
+3. Tested mqm running on Linux and AIX, zabbix server 2.4.6 .
