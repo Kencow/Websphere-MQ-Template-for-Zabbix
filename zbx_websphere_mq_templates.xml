@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2015-11-17T03:02:55Z</date>
+    <version>3.4</version>
+    <date>2018-06-06T17:44:34Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -25,11 +25,11 @@
             <items/>
             <discovery_rules>
                 <discovery_rule>
-                    <name>Discovery mqm</name>
+                    <name>Dicscovery channel</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>mqm_discvr</key>
+                    <key>ch_discvr</key>
                     <delay>600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -40,7 +40,6 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
                     <authtype>0</authtype>
@@ -54,24 +53,22 @@
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>2</lifetime>
+                    <lifetime>30d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>mqm status of {#MQM_NAME}</name>
+                            <name>channel status of {#CH_NAME}</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>mqm_status[{#MQM_NAME}]</key>
-                            <delay>60</delay>
-                            <history>30</history>
-                            <trends>365</trends>
+                            <key>ch_status[{#CH_NAME}]</key>
+                            <delay>30</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -79,11 +76,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -99,17 +93,125 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App WebSphere MQ Service:mqm_status[{#MQM_NAME}].last()}&lt;&gt;1</expression>
-                            <name>mqm is not running - {#MQM_NAME}</name>
+                            <expression>{Template App WebSphere MQ Service:ch_status[{#CH_NAME}].last()}&lt;&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>channel is not active - {#CH_NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Discovery mqm</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>mqm_discvr</key>
+                    <delay>600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>2d</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>mqm status of {#MQM_NAME}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>mqm_status[{#MQM_NAME}]</key>
+                            <delay>60</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>WebSphere MQ</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template App WebSphere MQ Service:mqm_status[{#MQM_NAME}].last()}&lt;&gt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>mqm is not running - {#MQM_NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
@@ -147,6 +249,7 @@
                         </graph_prototype>
                     </graph_prototypes>
                     <host_prototypes/>
+                    <jmx_endpoint/>
                 </discovery_rule>
                 <discovery_rule>
                     <name>Discovery queue</name>
@@ -164,7 +267,6 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
                     <authtype>0</authtype>
@@ -178,24 +280,22 @@
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>2</lifetime>
+                    <lifetime>2d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
                             <name>queue depth of {#Q_NAME}</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mq_depth[{#Q_NAME}]</key>
                             <delay>30</delay>
-                            <history>30</history>
-                            <trends>365</trends>
+                            <history>30d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -203,11 +303,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -223,41 +320,68 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{Template App WebSphere MQ Service:mq_depth[{#Q_NAME}].last()}&gt;10000 and {Template App WebSphere MQ Service:mq_depth[{#Q_NAME}].last()}&lt;100000</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Queue depth is more than 1w in {#Q_NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App WebSphere MQ Service:mq_depth[{#Q_NAME}].last()}&gt;100000</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Queue depth is more than 10w in {#Q_NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template App WebSphere MQ Service:mq_depth[{#Q_NAME}].last()}&gt;500 and {Template App WebSphere MQ Service:mq_depth[{#Q_NAME}].last()}&lt;10000</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Queue depth is more than 500 in {#Q_NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
                     <host_prototypes/>
+                    <jmx_endpoint/>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens/>
