@@ -19,7 +19,7 @@ On Zabbix's sever
 2. Apply the template to the host running MQ;
 3. Wait for discovery of MQM, Queue and Channel, and then enjoy !
 
-##Note
+## Note
 1. The script will autodiscover all Local Queues except "SYSTEM*" queues, and all Local channels except "SYSTEM*"
 2. The default triggers of queue depth is 500/1w/10w.
    The default triggers of status of channel is activate on NOT RUNNING STATE
