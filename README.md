@@ -5,7 +5,7 @@ Websphere MQ Template for Zabbix monitor, autodiscover MQM, local Queue, local C
 
 ## Installation
 
-Go to the zabbix-mq-<version> folder and follow the README guide.
+Go to the zabbix-mq-[version] folder and follow the README guide.
 
 * [zabbix-mq-3.4](https://github.com/Kencow/Websphere-MQ-Template-for-Zabbix/tree/master/zabbix-mq-3.4)
 * [zabbix-mq-2.4](https://github.com/Kencow/Websphere-MQ-Template-for-Zabbix/tree/master/zabbix-mq-2.4)
