@@ -16,5 +16,5 @@ Jan 25, 2016	Support Zabbix 2.4
 Go to the zabbix-version-named folder and follow the README guide.
 
 * [zabbix-mq-2.4](https://github.com/Kencow/Websphere-MQ-Template-for-Zabbix/tree/master/zabbix-mq-2.4)
-* [Zabbix-mq-3.4](https://github.com/Kencow/Websphere-MQ-Template-for-Zabbix/tree/master/zabbix-mq-3.4)
+* [zabbix-mq-3.4](https://github.com/Kencow/Websphere-MQ-Template-for-Zabbix/tree/master/zabbix-mq-3.4)
 
