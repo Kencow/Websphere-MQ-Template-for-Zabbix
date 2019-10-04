@@ -1,4 +1,4 @@
-# Websphere-MQ-Template-for-Zabbix
+# Websphere MQ Template for Zabbix-2.4
 Websphere MQ Template for Zabbix monitor, autodiscover MQM and local Queue, checking MQM's status and Queue's Depth.
 
 ## Install
