@@ -15,7 +15,7 @@ On Zabbix's sever
 2. Apply the template to the host running MQ;
 3. Wait for discovery of MQM and Queue, and then enjoy !
 
-##Note
+## Note
 1. The script will autodiscover all Local Queues except "SYSTEM*" queues.
 2. The default triggers of queue depth is 500/1w/10w.
 3. Tested mqm running on Linux and AIX, zabbix server 2.4.5 .
